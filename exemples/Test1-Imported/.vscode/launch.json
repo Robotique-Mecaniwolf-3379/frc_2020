@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - AppBoolean",
+      "request": "launch",
+      "mainClass": "app.AppBoolean",
+      "projectName": "Test1-Imported"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - App",
       "request": "launch",
       "mainClass": "app.App",
