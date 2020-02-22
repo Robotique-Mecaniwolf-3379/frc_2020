@@ -1,17 +1,15 @@
-package app;
+package frc.robot;
 
-import lab_robotique.BaseComputePeriodicBoolean;
-//import sun.font.TrueTypeFont;
 
-public class TestBouton1 extends BaseComputePeriodicBoolean {
+public class BasculeActivation  {
     private boolean _derniereEntree;
     private boolean _derniereSortie;
 
-    public TestBouton1() {
+    public BasculeActivation() {
     }
     // ...
 
-    @Override
+    
     public boolean compute(final boolean entree) {
         // La valeur de sortie c'est la précédente valeur de l'entrée
         boolean sortie;

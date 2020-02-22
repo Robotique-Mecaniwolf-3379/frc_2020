@@ -36,7 +36,7 @@ public class Robot extends TimedRobot {
   private static final int kRamasseurChannel = 5;
   private static final int kVerin1Cannel = 6;
 
-  private static final int kJoystickChannel = 2;
+  private static final int kJoystickChannel = 0;
 
   private final Joystick m_stick = new Joystick(kJoystickChannel);
   private final ColorSensorV3 m_colorSensor = new ColorSensorV3(i2cPort);
@@ -49,7 +49,7 @@ public class Robot extends TimedRobot {
   SpeedControllerGroup m_right = new SpeedControllerGroup(m_frontRight, m_rearRight);
   Spark m_ramasseur  = new Spark(kRamasseurChannel);
   Spark m_verin1 = new Spark(kVerin1Cannel);
-
+  BasculeActivation m_bascule = new BasculeActivation();
   @Override
   public void robotInit() {
   m_frontLeft.setInverted(true);
@@ -78,9 +78,9 @@ public class Robot extends TimedRobot {
     // That means that the Y axis drives forward
     // and backward, and the X turns left and right.
     double f = m_stick.getY();
-    if (m_stick.getRawButton(7)){
-      f = -f;
-    }
+    //if (m_stick.getRawButton(7)){
+     // f = -f;
+    //}
     m_drive.arcadeDrive(f, -m_stick.getX());
     int indexBtnEject = 4;
     if (SmartDashboard.getBoolean("estDroitier", true)) {
