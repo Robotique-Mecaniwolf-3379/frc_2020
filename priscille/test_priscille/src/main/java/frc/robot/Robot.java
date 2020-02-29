@@ -78,11 +78,13 @@ public class Robot extends TimedRobot {
     // That means that the Y axis drives forward
     // and backward, and the X turns left and right.
     double f = m_stick.getY();
-    //if (m_stick.getRawButton(7)){
-     // f = -f;
-    //}
-    m_drive.arcadeDrive(f, -m_stick.getX());
-    int indexBtnEject = 4;
+    boolean sortie = m_bascule.compute(m_stick.getRawButton(7));
+    SmartDashboard.putBoolean("bascule", sortie);
+    if (sortie){
+   f = -f;
+  }
+    m_drive.arcadeDrive(f, -m_stick.getX());}
+    int indexBtnEject = 4;{
     if (SmartDashboard.getBoolean("estDroitier", true)) {
       indexBtnEject = 5;
     }
@@ -96,12 +98,11 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("ramasseur", r);
     double v=0;
     if (m_stick.getRawButton(3)) {
-      v=1;
+    v=1;
     } else if (m_stick.getRawButton(2)) {
       v=-1;
     }
     m_verin1.setSpeed(v);
     SmartDashboard.putNumber("v", v);
-
   }
 }
